@@ -1,0 +1,6 @@
+imports:
+  - { resource: parameters.yml }
+
+parameters:
+  locale: en
+  log_permission: 0664

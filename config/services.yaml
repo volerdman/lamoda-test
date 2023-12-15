@@ -28,3 +28,45 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    controller.default:
+        class: App\Controller\DefaultController
+        arguments:
+            - "@monolog.logger"
+        tags: ['controller.default']
+
+    controller.storage:
+        class: App\Controller\StorageEventsController
+        arguments:
+            - "@monolog.logger"
+            - "@service.storage"
+        tags: [ 'controller.storage' ]
+
+    controller.product:
+        class: App\Controller\ProductEventsController
+        arguments:
+            - "@monolog.logger"
+            - "@service.product"
+        tags: [ 'controller.storage' ]
+
+    service.product:
+        class: App\Service\ProductService
+        arguments:
+            - "@monolog.logger"
+            - "@repository.product"
+        tags: [ 'service.product' ]
+
+    service.storage:
+        class: App\Service\StorageService
+        arguments:
+            - "@monolog.logger"
+            - "@repository.product"
+        tags: [ 'service.storage' ]
+
+    repository.product:
+        class: App\Repository\ProductRepository
+        tags: [ 'repository.product' ]
+
+    repository.storage:
+        class: App\Repository\StorageRepository
+        tags: [ 'repository.storage' ]

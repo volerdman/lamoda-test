@@ -1,0 +1,6 @@
+parameters:
+  database_host: '%env(resolve:MYSQL_HOST)%'
+  database_port: '%env(MYSQL_PORT)'
+  database_name: '%env(MYSQL_DATABASE)%'
+  database_user: '%env(MYSQL_USER)%'
+  database_password: '%env(MYSQL_PASSWORD)%'

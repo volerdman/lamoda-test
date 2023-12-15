@@ -1,3 +1,18 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+default:
+  path: /
+  controller: App\Controller\DefaultController::indexAction
+  methods: [GET]
+
+storage.events:
+  path: /storage
+  controller: App\Controller\StorageEventsController::handleStorageEvents
+  methods: [POST]
+
+product.events:
+  path: /product
+  controller: App\Controller\ProductEventsController::handleProductEvents
+  methods: [POST]
